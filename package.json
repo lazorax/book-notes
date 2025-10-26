@@ -1,0 +1,27 @@
+{
+  "name": "capstone-book",
+  "version": "1.0.0",
+  "description": "a website for displaying the books i have read with rating and review",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lazorax/book-collection.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lazorax/book-collection/issues"
+  },
+  "homepage": "https://github.com/lazorax/book-collection#readme",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}

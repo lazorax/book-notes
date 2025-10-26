@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addbook</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <h1 class="h1-style">Search & Add Book Via ISBN</h1>
+    <div class="container">
+         <% if(locals.isvalidAdmin){%>
+             <form action="/admin/searchBook" id="isbn-submit">
+                <input type="text" name="isvalidAdmin" value="<%=isvalidAdmin%>" hidden>
+                <input type="number" name="isbnCode" placeholder="Enetr ISBN Number" required>
+                <input type="submit" value="search">
+                 <% if(locals.error){%>
+                    <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
+                <%}%>
+            </form>
+        <%}%>
+    </div>
+
+   <%if(locals.bookInfo){%>
+     <form action="/addbook" method="post">
+
+        <input type="text" value="<%=bookInfo.isbn%>" name="isbn" hidden>
+       <div class="book-info">
+        <img src="<%=bookInfo.cover%>" alt="book cover">
+        <input type="text" name="coverImageUrl" value="<%=bookInfo.cover%>" hidden>
+
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" value="<%=bookInfo.title%>" required >
+        <label for="author">Notes: </label>
+        <input type="text" name="author" id="author" value="<%=bookInfo.authors%>" required>
+       </div>
+
+       <label for="readDate">When you read this Book: </label>
+        <input type="date" name="readDate" id="readDate" placeholder="Enter Date">
+
+       <label for="rate">Rate: </label>
+        <input type="number" name="rate" id="rate" placeholder="Rate Out of 10" required max="10" min="1" autofocus autocomplete="off">
+
+        <label for="review">Summary/Review : </label>
+        <textarea name="review" id="review" rows="5" cols="50" required placeholder="Enter review"></textarea>
+
+        <label for="notes">Notes: </label>
+        <textarea name="notes" id="notes" rows="15" cols="50" required placeholder="Enter notes"></textarea>
+
+        <input type="submit" value="ADD BOOK">
+    </form>
+   <%}%>
+   
+ <%- include('partials/footer.ejs'); -%>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+<div class="container">
+         <% if(locals.book){%>
+        <div class="card">
+              <div>
+                <img src="<%=book.cover_img_url%>" alt="<%=book.url%>" />
+              </div>
+              <div class="text">
+                <h1><%=book.title%> - By <%=book.author%></a></h1>
+                <div class="light-card-text">
+                    <h4>ISBN: <%=book.isbn%></h4>
+                    <h4>How strongly I recommend:  <%=book.rating%>/10</h4>
+                    <h4>Date Read: <%=book.read_date%></h4> </h4>
+                </div>
+
+              </div>
+        </div>
+        <div class="notes-container">
+            <p><%=book.review%></p>
+            <h1>My notes</h1>
+            <p><%=book.notes%></p>
+        </div>
+    <%}%>
+    <% if(locals.error){%>
+                    <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
+    <%}%>
+</div>
+
+<%-include('partials/footer.ejs');%>

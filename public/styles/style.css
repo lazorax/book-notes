@@ -1,0 +1,221 @@
+ :root {
+  --alabaster: #F2EADDff;
+  --persian-red: #B94B3Fff;
+  --eerie-black: #242620ff;
+  --alabaster-2: #EFE7DAff;
+  --walnut-brown: #5F5649ff;
+}
+ * {
+     padding: 0;
+     margin: 0;
+     font-family: "Courier New", Courier, monospace;
+ }
+
+ body {
+     background-color: #242620ff;
+     overflow-x: hidden;
+ }
+
+ .container {
+     z-index: 1000;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 70px;
+     width: 70vw;
+     height: 100%;
+ }
+
+ nav {
+     height: 8vh;
+     width: 100vw;
+     background-color: #b94b3fff;
+     padding: 1em;
+     display: flex;
+     justify-content: space-around;
+     color: #efe7daff;
+     text-align: center;
+ }
+
+ .left-nav-sec h1{
+margin-top: 1rem;
+
+ }
+ .right-nav-sec {
+    width: 50vw;
+     height: 100%;
+     display: flex;
+     justify-content: space-around;
+ }
+
+ .hero {
+     height: max-content;
+     margin-bottom: 20px;
+     background-color: rgba(95, 86, 73, 0.214);
+     padding: 20px;
+     color: #F2EADDff;
+ }
+
+ .books-wrapper {
+     height: 100%;
+     background-color: rgba(95, 86, 73, 0.214);
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     gap: 30px;
+ }
+
+ .card {
+     color: #efe7daff;
+     height: 90%;
+     width: 90%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     /* border-bottom: 1px solid grey; */
+     padding: 20px;
+ }
+ hr{
+   height: 1px; /* Adjust thickness as desired */
+  background-color: rgb(85, 75, 75); /* Set your desired color */
+  border: none;
+ }
+
+ .card a{
+    color: #F2EADDff;
+    font-weight: 520;
+    text-decoration-thickness:1.5px;
+    text-decoration-color:rgba(242, 234, 221, 0.668) ;
+ }
+
+ .card img {
+     height: 260px;
+     width: 165px;
+     margin-left: 50px;
+ }
+
+ .card .text {
+     width: 60%;
+     text-align: justify;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+    }
+    .light-card-text{
+        
+        color: rgb(158, 147, 131);
+        
+ }
+
+ /* adminlogin */
+ form {
+     background-color: #b94b3fff;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     gap: 30px;
+     width: 50%;
+     border-radius: 4px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 20px;
+ }
+
+ form input {
+     border: none;
+     height: 30px;
+     border-radius: 5px;
+     outline: none;
+     padding: 10px;
+     color: #242620ff;
+     font-weight: 800;
+     font-size: 1rem;
+ }
+
+ .btn {
+     padding: 10px;
+     height: 50px;
+     border: none;
+     border-radius: 5px;
+     background-color: #f2eaddff;
+     color: #242620ff;
+     font-size: 1rem;
+     font-weight: 700;
+ }
+
+ .book-info img {
+     height: 280px;
+     width: 190px;
+     border: 1px solid #242620ff;
+     grid-row: span 4;
+     /* margin-left: auto; */
+     margin: 0 auto 0 auto;
+
+ }
+
+ .book-info {
+     width: 100%;
+     display: grid;
+     grid-template-columns: 40% 60%;
+     grid-template-rows: 20% 30% 20% 30%;
+
+ }
+
+ .book-info input {
+     margin: auto 0 auto 0;
+ }
+
+ label {
+     margin-top: auto;
+     font-weight: 800;
+     color: rgb(34, 32, 32);
+ }
+
+ textarea {
+     padding: 10px 7px;
+     outline: none;
+     border-radius: 5px;
+     color: #242620ff;
+     font-weight: 800;
+     font-size: 1rem;
+ }
+
+ .h1-style {
+     text-align: center;
+     color: #f2eaddff;
+     margin: 30px 0 10px 0;
+ }
+ .notes-container{
+    background-color: rgb(41, 39, 36);
+    height: max-content;
+    color:#f2eaddff ;
+    padding: 2rem 3rem;
+ }
+ .notes-container h1{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+ }
+
+ footer {
+     display: flex;
+     margin-top: 150px;
+     overflow-x: hidden;
+     color: #EFE7DAff;
+     text-align: center;
+     background:
+         linear-gradient(180deg,
+             rgba(36, 38, 32, 0.5),
+             rgba(95, 86, 73, 0.5),
+             rgba(242, 234, 221, 0.5),
+             rgba(185, 75, 63, 0.5),
+             rgba(36, 38, 32, 0.5));
+
+ }
+
+ footer img {
+     height: 230px;
+     width: 500px;
+ }
+
+ footer .footer-text {
+     margin: auto auto auto 45%;
+ }

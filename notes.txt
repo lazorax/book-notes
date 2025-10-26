@@ -1,0 +1,21 @@
+update for admin{
+    edit and update option of notes and review -> for admin 
+    make -> /admin/update 
+    /admin/update -> render list for admin then edit option for notes 
+    /////cant it be on same page as searchbook but it goes to add book where we search the item via isbn when its has valid user 
+    make a /admin/update -> renders update book page 
+}
+
+
+email for issue {
+like from example page
+}
+
+books i have read {
+    1. the stranger
+    2. into themagic shop
+    3. olivers twist
+    4. the grand dutches book anasthasia 
+    5. the meta morphosisi   
+}
+

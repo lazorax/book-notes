@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>books</title>
+    <link rel="stylesheet" href="/styles/style.css">
+  </head>
+  <body>
+    <!-- navbar with sorting 1.rating 2.recency 3. title -->
+    <nav>
+      <div class="left-nav-sec">
+        <h1>Books I've Read</h1>
+      </div>
+      <div class="right-nav-sec">
+        <button class="btn" onclick="window.location.href='/sort/rating'">sort by rating</button>
+        <button class="btn" onclick="window.location.href='/sort/title'">sort by title</button>
+        <button class="btn" onclick="window.location.href='/sort/read_date'">sort by recency</button>
+      </div>
+    </nav>
+
+    <section class="container">
+      <!-- hero note  -->
+      <div class="hero">
+         <div class="note">
+          Here are my notes on Books I have read with Review.
+
+            <% if(locals.error){%>
+                    <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
+            <%}%>
+         </div>
+      </div>
+      <!--books cards-->
+      <div class="books-wrapper">
+        <% books.forEach((book)=>{%>
+        <div class="card">
+          <div>
+            <img src="<%=book.cover_img_url%>" alt="<%=book.url%>" />
+          </div>
+          <div class="text">
+            <h1><a href="/search/<%=book.isbn%>"><%=book.title%> - By <%=book.author%></a></h1>
+            <div class="light-card-text">
+              <h4><i>recommend <%=book.rating%>/10</i></h4>
+            <h4>Date Read: <%=book.read_date%></h4> </h4>
+            </div>
+            <p><%=book.review%></p>
+          </div>
+        </div>
+        <hr>
+        <% })%>
+      </div>
+    </section>
+ <%- include('partials/footer.ejs'); -%>
