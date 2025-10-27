@@ -206,17 +206,18 @@ app.get("/admin/updatebook/:isbn",async (req,res)=>{
 })
 
 app.post("/admin/updatebook",async(req,res)=>{
-//   console.log(
-// req.body.notesUpdate, req.body.reviewUpdate , req.body.readDateUpdate ,req.body.rateUpdate ,req.body.isbn
-//   );
-try {
-  await db.query("update book set notes = $1, review = $2, rating = $3, read_date = $4 where isbn = $5",
-    [req.body.notesUpdate,req.body.reviewUpdate,req.body.rateUpdate, req.body.readDateUpdate,req.body.isbn])
-
-    res.render("addbook.ejs",{isvalidAdmin:true});
-} catch (error) {
-  res.render("updatebook.ejs", { error: error.message ,updateFormDisplay:true});
-}
+  if(req.query.isvalidAdmin){
+      try {
+        await db.query("update book set notes = $1, review = $2, rating = $3, read_date = $4 where isbn = $5",
+          [req.body.notesUpdate,req.body.reviewUpdate,req.body.rateUpdate, req.body.readDateUpdate,req.body.isbn])
+        
+          res.render("addbook.ejs",{isvalidAdmin:true});
+      } catch (error) {
+        res.render("updatebook.ejs", { error: error.message ,updateFormDisplay:true});
+      }
+  }else{
+      res.render("adminlogin.ejs", { error: "Invalid Admin from update book post" });
+  }
 })
 
 app.listen(port, () => {

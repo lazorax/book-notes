@@ -51,11 +51,11 @@ resultList.innerHTML = `<p style="color: rgb(249, 246, 246);" >${disp}</p>`
 <%}%> 
 <% if(locals.updateFormDisplay){%>  
     <h1 class="h1-style">update </h1>
- <% if(locals.error){%>
-                        <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
-                     <%}%>
+     <% if(locals.error){%>
+        <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
+     <%}%>
      <form action="/admin/updatebook" method="post">
-
+<input type="text" name="isvalidAdmin" value="<%=updateFormDisplay%>" hidden>
        <input type="text" value="<%=bookToUpdate.isbn%>" name="isbn" hidden>
        <div class="book-info">
             <img src="<%=bookToUpdate.cover_img_url%>" alt="book cover">
