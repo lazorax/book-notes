@@ -7,24 +7,33 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <h1 class="h1-style">Search & Add Book Via ISBN</h1>
-    <div class="container">
-         <% if(locals.isvalidAdmin){%>
-             <form action="/admin/searchBook" id="isbn-submit">
-                <input type="text" name="isvalidAdmin" value="<%=isvalidAdmin%>" hidden>
-                <input type="number" name="isbnCode" placeholder="Enetr ISBN Number" required autocomplete="off">
-                <input type="submit" value="search">
-                 <% if(locals.error){%>
-                    <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
-                <%}%>
-            </form>
+    <% if(locals.isvalidAdmin){%>
+        <div class="container">
+            <div class="search-isbn-admin">
+                <h1 class="h1-style">Search Via ISBN to Add</h1>
+                <form action="/admin/searchBook" id="isbn-submit">
+                    <input type="text" name="isvalidAdmin" value="<%=isvalidAdmin%>" hidden>
+                    <input type="number" name="isbnCode" placeholder="Enetr ISBN Number" required autocomplete="off">
+                    <input type="submit" value="search">
+                     <% if(locals.error){%>
+                        <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
+                     <%}%>
+                </form>
+            </div>
+            <div class="update-book-admin">
+                <h1 class="h1-style">OR <br> Update Book</h1>
+                <form action="/admin/updatebook" method="get">
+                    <input type="text" name="isvalidAdmin" value="<%=isvalidAdmin%>" hidden>
+                    <input type="submit" value="Go To Update Page">
+                </form>
+            </div>
+        </div>
+<%}%>
 
-        <%}%>
-    </div>
-
-   <%if(locals.bookInfo){%>
+   <%if(locals.bookInfo && locals.addBookForm){%>
+    <h1 class="h1-style">Add Book</h1>
      <form action="/addbook" method="post">
-
+        <input type="text" name="isValidAdmin" value="<%=addBookForm%>" hidden>
         <input type="text" value="<%=bookInfo.isbn%>" name="isbn" hidden>
        <div class="book-info">
         <img src="<%=bookInfo.cover%>" alt="book cover">
@@ -51,5 +60,5 @@
         <input type="submit" value="ADD BOOK">
     </form>
    <%}%>
-   
+
  <%- include('partials/footer.ejs'); -%>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update book</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body style="height: 70vh;">
+    <% if(locals.isvalidAdmin){%>
+    <div class="container " > 
+            <div class="search-isbn-admin">
+                <h1 class="h1-style">Search Book To Update</h1>
+                <div class="search-container">
+                    <input id="searchInput" placeholder="Search book by title or author..." />
+                    <div id="resultList"></div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <script>
+            const books = <%- JSON.stringify(books) %>;
+            //   console.log(books);
+            const searchInput = document.getElementById("searchInput")
+            const resultList = document.getElementById("resultList")
+            
+            searchInput.addEventListener("input",()=>{
+                //as user enters the word match that with the title and author name from the books obj 
+                //1 convert userinput to lowercase
+                const query = searchInput.value.toLowerCase().trim();
+                console.log(query);
+                
+                //2 convert the db data books data to lowercase 
+    let booksArray = books.filter((book)=>book.title.toLowerCase().includes(query))
+    // console.log("booksarray: ",booksArray);
+    let titlearray = booksArray.map(book=>({title:book.title,author:book.author,isbn:book.isbn}))
+// console.log("titlearray: ",titlearray);
+let disp = undefined
+titlearray.forEach(element => {
+    if(disp){
+        disp+= `<p style="color: rgb(249, 246, 246);" onclick="window.location.href='/admin/updatebook/${element.isbn}'">${element.title}</p><br>`
+    }else{
+        disp = `<p style="color: rgb(249, 246, 246);" onclick="window.location.href='/admin/updatebook/${element.isbn}'">${element.title}</p><br>`
+    }
+}); 
+resultList.innerHTML = `<p style="color: rgb(249, 246, 246);" >${disp}</p>`
+
+})
+</script>
+<%}%> 
+<% if(locals.updateFormDisplay){%>  
+    <h1 class="h1-style">update </h1>
+ <% if(locals.error){%>
+                        <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
+                     <%}%>
+     <form action="/admin/updatebook" method="post">
+
+       <input type="text" value="<%=bookToUpdate.isbn%>" name="isbn" hidden>
+       <div class="book-info">
+            <img src="<%=bookToUpdate.cover_img_url%>" alt="book cover">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" value="<%=bookToUpdate.title%>" required >
+            <label for="author">Author: </label>
+            <input type="text" name="author-update" id="author" value="<%=bookToUpdate.author%>" required>
+       </div>
+
+       <label for="readDate">When you read this Book: </label>
+        <input type="date" name="readDateUpdate" id="readDate"  value="<%=bookToUpdate.read_date%>" placeholder="Enter Date" autofocus>
+
+       <label for="rate">Rate: </label>
+        <input type="number"  name="rateUpdate" value="<%=bookToUpdate.rating%>" id="rate" placeholder="Rate Out of 10" required max="10" min="1"  autocomplete="off">
+
+        <label for="review">Summary/Review : </label>
+        <textarea name="reviewUpdate" id="review" rows="5" cols="50" required placeholder="Enter review"><%=bookToUpdate.review%></textarea>
+
+        <label for="notes">Notes: </label>
+        <textarea name="notesUpdate" id="notes" rows="15" cols="50" required placeholder="Enter notes"><%=bookToUpdate.notes%></textarea>
+
+        <input type="submit" value="Update Book">
+    </form>
+<%}%> 
+<%- include('partials/footer.ejs'); -%>
