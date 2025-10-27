@@ -101,7 +101,9 @@ margin-top: 1rem;
      gap: 10px;
     }
     .light-card-text{
-        
+        display: flex;
+        flex-direction: column;
+        gap:10px;
         color: rgb(158, 147, 131);
         
  }
@@ -217,5 +219,13 @@ margin-top: 1rem;
  }
 
  footer .footer-text {
-     margin: auto auto auto 45%;
+     margin: auto auto auto auto;
+     font-size:0.8rem;
  }
+ .social-link {
+    margin-top: 10px;
+}
+.social-link a{
+     color: #EFE7DAff;
+     font-size: 1rem;
+}

@@ -12,12 +12,13 @@
          <% if(locals.isvalidAdmin){%>
              <form action="/admin/searchBook" id="isbn-submit">
                 <input type="text" name="isvalidAdmin" value="<%=isvalidAdmin%>" hidden>
-                <input type="number" name="isbnCode" placeholder="Enetr ISBN Number" required>
+                <input type="number" name="isbnCode" placeholder="Enetr ISBN Number" required autocomplete="off">
                 <input type="submit" value="search">
                  <% if(locals.error){%>
                     <p style="color: rgb(249, 246, 246); text-shadow: 4px 3px 4px rgb(253, 3, 3) ;text-align: center;"><%=error%></p>
                 <%}%>
             </form>
+
         <%}%>
     </div>
 
@@ -31,7 +32,7 @@
 
         <label for="title">Title: </label>
         <input type="text" name="title" id="title" value="<%=bookInfo.title%>" required >
-        <label for="author">Notes: </label>
+        <label for="author">Author: </label>
         <input type="text" name="author" id="author" value="<%=bookInfo.authors%>" required>
        </div>
 

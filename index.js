@@ -17,19 +17,22 @@ const db = new pg.Client({
 
 db.connect();
 
+let  booksLength =0
+
 app.get("/", async (req, res) => {
   //get all the info from the db
   try {
     const result = await db.query("select * from book");
-    console.log(result.rows.length);
-    res.render("index.ejs", { books: result.rows });
+    // console.log(result.rows.length);
+    booksLength = result.rows.length
+    res.render("index.ejs", { books: result.rows ,booksLength:booksLength});
   } catch (err) {
     res.render("index.ejs", { error: err.message });
   }
 });
 
 app.get("/admin", (req, res) => {
-  //render admin.ejs whch has a form
+  //render adminlogin.ejs whch has a form
   res.render("adminlogin.ejs");
 });
 
@@ -59,10 +62,9 @@ async function checkAdmin(username, password) {
 
 app.post("/admin", async (req, res) => {
   //accept the username and password and check from db to authenticate
-  //render addbook.ejs
+  //render addbook.ejs if authentic user or return back to adminlogin.ejs
   const username = req.body.username;
   const password = req.body.password;
-  // console.log(username,password);
 
   const adminAuthenticateMessage = await checkAdmin(username, password);
   // console.log("received from function in admin : ",adminAuthenticateMessage);
@@ -88,7 +90,7 @@ app.get("/admin/searchBook", async (req, res) => {
     try {
       //get isbn number
       const searchISBN = req.query.isbnCode;
-      console.log("User searched for:", searchISBN);
+      //console.log("User searched for:", searchISBN);
       //get book info from https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data
       const response = await axios.get(
         `https://openlibrary.org/api/books?bibkeys=ISBN:${searchISBN}&format=json&jscmd=data`
@@ -148,8 +150,6 @@ app.post("/addbook", async (req, res) => {
 
 app.get("/search/:isbn", async (req, res) => {
   //get specific isbn and provide notes info along with isbn(hidden), title, author, summary , rating, read-date, url-of-the-image
-  //   res.send(req.params.isbn)
-
   try {
     const result = await db.query("select * from book where isbn = $1", [
       req.params.isbn,
@@ -165,17 +165,17 @@ app.get("/sort/:filter", async (req, res) => {
     //get filter - rating , recency, title
     const filter = req.params.filter;
     //sort according to filter
-    //get data from db (using oredr by asc - 1.rating, 2.recency , 3.title )
-    if (filter === "rating") {
-      const result = await db.query(
-        `select * from book order by ${filter} DESC;`
-      ); //RETURNS ARRAY OF OBJS
-      res.render("index.ejs", { books: result.rows });
-    } else {
+    //get data from db (using oredr by asc - title / desc - rating and recency )
+    if (filter === "title") {
       const result = await db.query(
         `select * from book order by ${filter} ASC;`
+      ); //RETURNS ARRAY OF OBJS
+      res.render("index.ejs", { books: result.rows ,booksLength:booksLength});
+    } else {
+      const result = await db.query(
+        `select * from book order by ${filter} DESC;`
       );
-      res.render("index.ejs", { books: result.rows });
+      res.render("index.ejs", { books: result.rows ,booksLength:booksLength});
     }
   } catch (err) {
     res.render("index.ejs", { error: err.message });
