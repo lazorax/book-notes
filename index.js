@@ -206,7 +206,7 @@ app.get("/admin/updatebook/:isbn",async (req,res)=>{
 })
 
 app.post("/admin/updatebook",async(req,res)=>{
-  if(req.query.isvalidAdmin){
+  if(req.body.isvalidAdmin){
       try {
         await db.query("update book set notes = $1, review = $2, rating = $3, read_date = $4 where isbn = $5",
           [req.body.notesUpdate,req.body.reviewUpdate,req.body.rateUpdate, req.body.readDateUpdate,req.body.isbn])

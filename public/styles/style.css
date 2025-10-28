@@ -119,9 +119,7 @@ margin-top: 1rem;
      gap: 30px;
      width: 50%;
      border-radius: 4px;
-     margin-left: auto;
-     margin-right: auto;
-     margin-bottom: 20px;
+     margin: 0 auto 20px auto;
  }
 
  form input, #searchInput {
@@ -138,11 +136,12 @@ margin-top: 1rem;
  .btn {
      padding: 0.8rem;
      height: 3em;
+     width: max-content;
      border: none;
      border-radius: 5px;
      background-color: #f2eaddff;
      color: #242620ff;
-     font-weight: 700;
+    font-weight: 700;
  }
 
  .book-info img {
@@ -150,7 +149,6 @@ margin-top: 1rem;
      width: 190px;
      border: 1px solid #242620ff;
      grid-row: span 4;
-     /* margin-left: auto; */
      margin: 0 auto 0 auto;
 
  }
@@ -241,15 +239,79 @@ margin-top: 1rem;
      font-size: 1rem;
 }
 
-/* media query me 
-constiner width increase 
-nav height increase 15vh
-btns in icon 
-card display direction column
-card padding 20px to 1rem 
-card text width 100%
-btn width 8rem 
-btn height 3rem
-footer display flex hata de  
-form width hata de 
-book-info display flex direct column and center the image */
+@media (max-width :850px){
+    .container{
+        width: 85vw;
+    }
+    nav{
+        height: 20%;
+        /* max-height: fit-content; */
+        box-sizing: border-box;
+    }
+    .btn{
+        width :70%;
+        height :max-content;
+        
+    }
+    .card{
+        flex-direction: column;
+        justify-content: center;
+        padding: none;
+    }
+    .book-info{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .card img{
+        margin-left: 0;
+    }
+    .card .text{
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .card .text h1{
+        font-size: 1.5rem;
+    }
+    .card .text p{
+        margin-top: 1rem;
+    }
+    .right-nav-sec {
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .notes-container{
+        padding: 1rem;
+        text-align: justify;
+    }
+    form{
+        width: 80%;
+        padding: 2rem;
+        align-items: center;
+        box-sizing: border-box;
+        gap: 1rem;
+    }
+    form input{
+        width:90%;
+    }
+    .book-info  label{
+        margin: 0.7rem 0;
+    }
+    textarea{
+        width: 100%;
+    }
+    footer {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+}
+@media(max-width:550px){
+    .right-nav-sec {
+        flex-direction: column;
+        width: 70%;
+    }
+
+}
