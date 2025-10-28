@@ -201,6 +201,19 @@ margin-top: 1rem;
     flex-direction: column;
     align-items: center;
  }
+ #resultList {
+    padding: 0.5rem;
+    margin-top: 1rem;
+    background-color: #5F5649ff;
+}
+#resultList hr{
+     height: 1px; /* Adjust thickness as desired */
+  background-color: rgb(223, 219, 219); /* Set your desired color */
+  border: none;
+}
+#resultList p{
+    margin-top:1rem;
+}
 
  footer {
      display: flex;
