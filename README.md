@@ -56,10 +56,22 @@ Open your browser and visit
 
 Folder Structure
 .
-├── middlewares/
-├── public/
-├── views/
-├── .env
-├── db.js
-├── index.js
-└── package.json
+- middlewares/
+    - fetchBooks.js
+- public/
+    - assets
+        - tree-removebg-preview.png
+    - styles
+        - style.css    
+- views/
+    - partials/
+        - footer.ejs
+    - addbook.ejs
+    - adminlogin.ejs
+    - book.ejs
+    - index.ejs
+    - updatebook.ejs
+- .env
+- db.js
+- index.js
+- package.json
