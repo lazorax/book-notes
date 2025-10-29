@@ -4,7 +4,7 @@ import axios from "axios";
 import { fetchBooksMiddleware } from "./middlewares/fetchBooks.js";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true })); //(parse data from HTML forms (the stuff sent via POST requests with application/x-www-form-urlencoded)body comes as name=Riya&age=21 but this changes to { name: "Riya", age: "21" }
 app.use(express.static("public"));
