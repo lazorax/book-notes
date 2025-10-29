@@ -31,7 +31,6 @@ This is my Capstone project where I can display the notes for the books I have r
 
 2. Install dependencies
 
-     ```bash 
      npm install 
 
 
