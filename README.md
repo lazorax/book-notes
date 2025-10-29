@@ -54,12 +54,12 @@ Open your browser and visit
     http://localhost:3000
 ````
 
-🧩 Folder Structure
+Folder Structure
 .
 ├── middlewares/
-├── public/           
-├── views/ 
-├── .env             
-├── db.js              
-├── index.js            
+├── public/
+├── views/
+├── .env
+├── db.js
+├── index.js
 └── package.json
