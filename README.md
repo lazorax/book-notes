@@ -25,14 +25,14 @@ This is my Capstone project where I can display the notes for the books I have r
 ## ⚙️ Installation & Setup
 
 1. Clone the repository  
-   ```bash
-   git clone https://github.com/lazorax/book-notes.git
-   cd your-repo-name 
 
+````bash
+    git clone https://github.com/lazorax/book-notes.git
+````
 2. Install dependencies
-
-     npm install 
-
+````bash
+    npm install 
+````
 
 3. Create a .env file and add your database credentials
 
@@ -40,18 +40,19 @@ This is my Capstone project where I can display the notes for the books I have r
 
 
 4. Start the server
-
+````bash
     bash npm start
-
+````
 
 or
-
+````bash
     bash node index.js
-
+````
 
 Open your browser and visit
-
-http://localhost:3000
+````bash 
+    http://localhost:3000
+````
 
 🧩 Folder Structure
 .
