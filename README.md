@@ -31,7 +31,7 @@ This is my Capstone project where I can display the notes for the books I have r
 
 2. Install dependencies
 
-    npm install```
+     ```bash npm install 
 
 
 3. Create a .env file and add your database credentials
