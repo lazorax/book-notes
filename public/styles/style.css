@@ -46,6 +46,9 @@ margin-top: 1rem;
      display: flex;
      justify-content: space-around;
  }
+ .right-nav-sec button{
+width: max-content;
+ }
 
  .hero {
      height: max-content;
@@ -136,7 +139,6 @@ margin-top: 1rem;
  .btn {
      padding: 0.8rem;
      height: 3em;
-     width: max-content;
      border: none;
      border-radius: 5px;
      background-color: #f2eaddff;
