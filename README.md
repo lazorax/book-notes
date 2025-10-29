@@ -31,7 +31,7 @@ This is my Capstone project where I can display the notes for the books I have r
 
 2. Install dependencies
 
-    ```bash npm install
+    npm install
 
 
 3. Create a .env file and add your database credentials
@@ -41,12 +41,12 @@ This is my Capstone project where I can display the notes for the books I have r
 
 4. Start the server
 
-```bash npm start
+    bash npm start
 
 
 or
 
-```bash node index.js
+    bash node index.js
 
 
 Open your browser and visit
@@ -62,3 +62,4 @@ http://localhost:3000
 ├── db.js              
 ├── index.js            
 └── package.json
+```
