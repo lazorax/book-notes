@@ -27,26 +27,26 @@ This is my Capstone project where I can display the notes for the books I have r
 1. Clone the repository  
    ```bash
    git clone https://github.com/lazorax/book-notes.git
-   cd your-repo-name ```
+   cd your-repo-name 
 
 2. Install dependencies
 
-`npm install`
+    ```bash npm install
 
 
 3. Create a .env file and add your database credentials
 
-DATABASE_URL=postgres://username:password@localhost:5432/booksdb
+    `DATABASE_URL=postgres://username:password@localhost:5432/booksdb`
 
 
 4. Start the server
 
-npm start
+```bash npm start
 
 
 or
 
-node index.js
+```bash node index.js
 
 
 Open your browser and visit
@@ -55,9 +55,10 @@ http://localhost:3000
 
 🧩 Folder Structure
 .
-├── public/           # Static assets (CSS, images, etc.)
-├── views/            # EJS templates
-├── routes/           # Express route files
-├── db/               # Database connection & queries
-├── app.js            # Main server file
+├── middlewares/
+├── public/           
+├── views/ 
+├── .env             
+├── db.js              
+├── index.js            
 └── package.json
